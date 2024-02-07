@@ -1,4 +1,14 @@
 <?php
+function generatorPsw($number){
+    $characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*";
+    $password = "";
+    for ($i=0; $i < $number ; $i++) { 
+        $randomPosition = rand(0 , strlen($characters)-1);
+        $password .= $characters[$randomPosition];
+    }
+    return $password;
+}
+
 
 ?>
 
@@ -36,7 +46,16 @@
             <section>
                 <div class="container">
                     <div id="result">
-    
+                        <?php
+                        if (!isset($_GET['lengthPsw'])) {
+                            echo "Genera la tua password";
+                        }
+                        else{
+                            echo "Password generata: ";
+                            echo generatorPsw(intval($_GET['lengthPsw']));
+                            echo " lunghezza di :". $_GET['lengthPsw'];
+                        }
+                        ?>
                     </div>
                 </div>
             </section>
