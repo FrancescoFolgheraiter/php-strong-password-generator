@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +13,33 @@
     </head>
     <body>
         <header>
-            <h1>
+            <h1 class="text-center mb-5">
                 password generator
             </h1>
         </header>
-        <main></main>
+        <main>
+            <section>
+                <div class="container">
+                    <form action="" method="get">
+                        <div class="mb-3">
+                            <label class=" form-label " for="lengthPsw">
+                                Inserisci la lunghezza della password da generare
+                            </label>
+                            <input class=" form-control w-25 " type="number" name="lengthPsw" id="lengthPsw" min="5" max="20" placeholder="Inserisci un numero da 5 a 20">
+                        </div>
+                        <div class="d-flex justify-content-center ">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div id="result">
+    
+                    </div>
+                </div>
+            </section>
+        </main>
     </body>
 </html>
