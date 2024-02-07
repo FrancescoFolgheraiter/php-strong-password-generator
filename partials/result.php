@@ -1,6 +1,5 @@
 <?php
 session_start();
-var_dump($_SESSION["lunghezza"])
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +22,7 @@ var_dump($_SESSION["lunghezza"])
                         if (!empty($_SESSION["lunghezza"])) {
                             include __DIR__ ."./function.php";
                             echo "Password generata: ";
-                            echo "<h2>".generatorPsw($_SESSION["lunghezza"])."</h2>";
+                            echo "<h2>".generatorPsw($_SESSION)."</h2>";
                             echo " lunghezza di :".$_SESSION["lunghezza"];
                         }
                         else{
