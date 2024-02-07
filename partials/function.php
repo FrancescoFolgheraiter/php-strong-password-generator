@@ -2,7 +2,7 @@
     function generatorPsw($array){
         $number = "0123456789";
         $alphabet ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $token ="!@#$%&*";
+        $token ="!@#$%&*<>-_";
         $characters = "";
 
         if($array["numeri"]){
@@ -24,7 +24,7 @@
             }
             else{
                 $randomPosition = rand(0 , strlen($characters)-1);
-                if(strpos($password,$characters[$randomPosition]) == false){
+                if (strpos($password, $characters[$randomPosition]) === false) {
                     $password .= $characters[$randomPosition];
                 }
                 else{

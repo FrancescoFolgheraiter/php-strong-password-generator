@@ -60,7 +60,7 @@
                             </div>
                             <div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="repeat" id="repeat" value="repeat">
+                                <input class="form-check-input" type="radio" name="repeat" id="repeat" value="repeat" checked>
                                 <label class="form-check-label" for="repeat">
                                     Ripeti caratteri
                                 </label>
