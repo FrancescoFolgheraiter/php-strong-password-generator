@@ -6,6 +6,7 @@
             $randomPosition = rand(0 , strlen($characters)-1);
             $password .= $characters[$randomPosition];
         }
+        $_SESSION["password"] = $password;
         return $password;
     }
 ?>

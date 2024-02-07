@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    var_dump($_SESSION);
+    if (isset($_GET['lengthPsw'])){
+        $_SESSION["lunghezza"] = intval($_GET['lengthPsw']);
+        header("Location: ./partials/result.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,23 +37,7 @@
                     </form>
                 </div>
             </section>
-            <section>
-                <div class="container">
-                    <div id="result">
-                        <?php
-                        if (isset($_GET['lengthPsw'])) {
-                            include __DIR__ ."./partials/function.php";
-                            echo "Password generata: ";
-                            echo "<h2>".generatorPsw(intval($_GET['lengthPsw']))."</h2>";
-                            echo " lunghezza di :". $_GET['lengthPsw'];
-                        }
-                        else{
-                            echo "Genera la tua password";
-                        }
-                        ?>
-                    </div>
-                </div>
-            </section>
+            
         </main>
     </body>
 </html>
