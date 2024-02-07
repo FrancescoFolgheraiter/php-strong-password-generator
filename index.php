@@ -1,17 +1,3 @@
-<?php
-function generatorPsw($number){
-    $characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*";
-    $password = "";
-    for ($i=0; $i < $number ; $i++) { 
-        $randomPosition = rand(0 , strlen($characters)-1);
-        $password .= $characters[$randomPosition];
-    }
-    return $password;
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,7 +21,7 @@ function generatorPsw($number){
                             <label class=" form-label " for="lengthPsw">
                                 Inserisci la lunghezza della password da generare
                             </label>
-                            <input class=" form-control w-25 " type="number" name="lengthPsw" id="lengthPsw" min="5" max="20" placeholder="Inserisci un numero da 5 a 20">
+                            <input class=" form-control w-25 " type="number" name="lengthPsw" id="lengthPsw" min="5" max="20" required placeholder="Inserisci un numero da 5 a 20">
                         </div>
                         <div class="d-flex justify-content-center ">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -47,13 +33,14 @@ function generatorPsw($number){
                 <div class="container">
                     <div id="result">
                         <?php
-                        if (!isset($_GET['lengthPsw'])) {
-                            echo "Genera la tua password";
+                        if (isset($_GET['lengthPsw'])) {
+                            include __DIR__ ."./partials/function.php";
+                            echo "Password generata: ";
+                            echo "<h2>".generatorPsw(intval($_GET['lengthPsw']))."</h2>";
+                            echo " lunghezza di :". $_GET['lengthPsw'];
                         }
                         else{
-                            echo "Password generata: ";
-                            echo generatorPsw(intval($_GET['lengthPsw']));
-                            echo " lunghezza di :". $_GET['lengthPsw'];
+                            echo "Genera la tua password";
                         }
                         ?>
                     </div>
